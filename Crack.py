@@ -95,20 +95,20 @@ getPicHeader = {
 
 request = urllib2.Request(bgUrl, headers=getPicHeader)
 bgResult = urllib2.urlopen(request)
-with open("bg.png", "wb") as f:
+with open("captcha/bg.png", "wb") as f:
     f.write(bgResult.read())
 
 request = urllib2.Request(fullbgUrl, headers=getPicHeader)
 fullbgResult = urllib2.urlopen(request)
-with open("fullbg.png", "wb") as f:
+with open("captcha/fullbg.png", "wb") as f:
     f.write(fullbgResult.read())
 
 # 图像还原
 #  X偏移值: (n[i] % 26 * 12 + 1)
 #  Y偏移值: (n[i] > 25 ? f.config.height / 2 : 0)
 # 恢复前图像
-bg = Image.open("bg.png", "r")
-fullbg = Image.open("fullbg.png", "r")
+bg = Image.open("captcha/bg.png", "r")
+fullbg = Image.open("captcha/fullbg.png", "r")
 rows = 2  # 行
 columns = 26  # 列
 sliceWidth = 10  # 列宽
@@ -142,8 +142,8 @@ for row in range(rows):
                                        fullbgPix)
 
 # 保存恢复后图像
-recoverBg.save("recoverBg.png", "PNG")
-recoverFullBg.save("recoverFullBg.png", "PNG")
+recoverBg.save("captcha/recoverBg.png", "PNG")
+recoverFullBg.save("captcha/recoverFullBg.png", "PNG")
 
 # 计算缺块的距离
 breakFlag = 0
