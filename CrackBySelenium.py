@@ -120,7 +120,6 @@ time.sleep(random.randint(1, 32) * 0.01)
 for index in range(length):
     browser.execute(Command.MOVE_TO, {'xoffset': 1, 'yoffset': random.randint(-1, 1)})
     time.sleep(random.randint(39, 698) * 0.0001)
-    # 在滑块快靠近缺口时干扰
     if index == length - 15:
         for index in range(3):
             browser.execute(Command.MOVE_TO, {'xoffset': 9999, 'yoffset': 9999})
