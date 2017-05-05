@@ -124,6 +124,8 @@ for index in range(length):
         for index in range(3):
             browser.execute(Command.MOVE_TO, {'xoffset': 9999, 'yoffset': 9999})
             browser.execute(Command.MOVE_TO, {'xoffset': -9999, 'yoffset': -9999})
+            browser.execute(Command.MOVE_TO, {'xoffset': 9999, 'yoffset': 9999})
+            browser.execute(Command.MOVE_TO, {'xoffset': -9999, 'yoffset': -9999})
 time.sleep(random.randint(0, 100) * 0.001)
 acthion.release(block).perform()
 time.sleep(2)
